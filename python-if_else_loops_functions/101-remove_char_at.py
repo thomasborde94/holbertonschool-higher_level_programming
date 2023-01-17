@@ -7,6 +7,6 @@ def remove_char_at(str, n):
             i += 1
             continue
         else:
-            string += str(char)
+            string += char
         i += 1
     print("{}".format(string))
