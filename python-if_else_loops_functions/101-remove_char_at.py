@@ -4,9 +4,9 @@ def remove_char_at(str, n):
     string = ""
     for char in str:
         if i == n:
-            i++
+            i += 1
             continue
         else:
             string += str(char)
-        i++
+        i += 1
     print("{}".format(string))
