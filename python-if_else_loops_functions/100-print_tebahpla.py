@@ -5,4 +5,4 @@ def print_alpha():
         if i % 2 == 0:
             i = chr(ord(i) - 32)
         result += i
-        print("{}".format(result), end="")
+    print("{}".format(result), end="")
