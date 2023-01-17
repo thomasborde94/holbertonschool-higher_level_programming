@@ -2,5 +2,5 @@
 def islower(c):
     for i in range(97, 123):
         if i == ord(c):
-            return true
-    return false
+            return True
+    return False
