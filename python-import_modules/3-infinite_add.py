@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import sys
+
+
 def infinite_add():
     if __name__ == "__main__":
         result = 0
@@ -10,5 +12,6 @@ def infinite_add():
                 result += int(sys.argv[i])
                 i += 1
             print("{}".format(result))
+
 
 infinite_add()
