@@ -9,6 +9,6 @@ def infinite_add():
             for i in range(1, len(sys.argv)):
                 result += int(sys.argv[i])
                 i += 1
-                print("{}".format(result))
+            print("{}".format(result))
 
 infinite_add()
