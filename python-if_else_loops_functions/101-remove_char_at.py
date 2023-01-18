@@ -11,4 +11,4 @@ def remove_char_at(str, n):
         else:
             string += char
         i += 1
-    print("{}".format(string))
+    return string
