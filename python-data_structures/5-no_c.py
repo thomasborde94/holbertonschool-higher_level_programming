@@ -7,6 +7,7 @@ def no_c(my_string):
     else:
         newString = ""
         for i in range(0, len(my_string)):
-            if my_string[i] != "c" and my_string[i] != "C" and my_string[i] != None:
+            if my_string[i] != "c" and my_string[i] != "C"
+            and my_string[i] is not None:
                 newString += my_string[i]
         return newString
