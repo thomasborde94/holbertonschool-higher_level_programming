@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a Square"""
 
+
 class Square:
     """represents a square"""
 
@@ -9,7 +10,7 @@ class Square:
         Args:
         size (int): size a the square
         """
-        self.size = size
+        self.__size = size
 
         @property
         def size(self):
