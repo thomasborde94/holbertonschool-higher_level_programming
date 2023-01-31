@@ -17,3 +17,7 @@ TypeError: text must be a string
 
 >>> text_indentation("Hello ")
 Hello 
+
+>>> text_indentation("Hello here comes the newline\nyo")
+Hello here comes the newline
+yo
