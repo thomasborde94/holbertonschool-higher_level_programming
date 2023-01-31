@@ -18,4 +18,3 @@ specific characters
         else:
             print("{}".format(i))
             print()
-            print()
