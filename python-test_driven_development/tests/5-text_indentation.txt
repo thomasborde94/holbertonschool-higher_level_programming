@@ -22,3 +22,6 @@ Hello
 Hello here comes the newline
 <BLANKLINE>
 yo
+
+>>> text_indentation("\n")
+<BLANKLINE>
