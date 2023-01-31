@@ -12,12 +12,17 @@ specific characters
     """
     if type(text) != str:
         raise TypeError("text must be a string")
-    a = 0
-    while a < len(text):
-        if text[a] in [':', '.', '?']:
-            print(text[a])
-            print()
-            a += 1
-        else:
-            print(text[a], end='')
-            a += 1
+    c = 0
+    while c < len(text) and text[c] == ' ':
+        c += 1
+
+    while c < len(text):
+        print(text[c], end="")
+        if text[c] == "\n" or text[c] in ".?:,":
+            if text[c] in ".?:,":
+                print("\n")
+            c += 1
+            while c < len(text) and text[c] == ' ':
+                c += 1
+            continue
+        c += 1
