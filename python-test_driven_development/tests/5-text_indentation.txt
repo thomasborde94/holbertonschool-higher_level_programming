@@ -25,3 +25,14 @@ yo
 
 >>> text_indentation("\n")
 <BLANKLINE>
+
+>>> text_indentation("")
+
+>>> text_indentation("?\n")
+?
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation(".")
+.
+<BLANKLINE>
