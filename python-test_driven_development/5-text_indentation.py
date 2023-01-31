@@ -16,5 +16,6 @@ specific characters
         if i != "." and i != "," and i != "?" and i != ":":
             print("{}".format(i), end="")
         else:
+            print("{}".format(i))
             print()
             print()
