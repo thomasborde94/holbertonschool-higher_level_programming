@@ -18,6 +18,8 @@ class Rectangle:
 
     def __str__(self):
         string = ""
+        if self.__width == 0 or self.__height == 0:
+            return string
         for i in range(self.__height):
             if i == self.__height - 1:
                 string += "#" * self.__width
