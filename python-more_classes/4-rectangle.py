@@ -29,9 +29,9 @@ class Rectangle:
         return string
 
     def __repr__(self):
-        stringRep = ""
-        stringRep += "Rectangle({:d}, {:d})".format(self.__width, self.__height)
-        return stringRep
+        stringR = ""
+        stringR += "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+        return stringR
 
     @property
     def height(self):
