@@ -1,0 +1,1 @@
+More exercices about classes in python
