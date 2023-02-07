@@ -17,6 +17,9 @@
 >>> my_list.print_sorted()
 [1, 2, 4]
 
->>> print(id(my_list) == id(my_list.print_sorted()))
-[1, 2, 4]
-False
+>>> my_list.append(-5)
+>>> print(my_list)
+[1, 4, 2, -5]
+
+>>> my_list.print_sorted()
+[-5, 1, 2, 4]
