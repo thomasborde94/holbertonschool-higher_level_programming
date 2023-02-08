@@ -8,11 +8,11 @@ TypeError: mystr must be an integer
 
 >>> base.integer_validator("mystr", -5)
 Traceback (most recent call last):
-TypeError: mystr must be greater than 0
+ValueError: mystr must be greater than 0
 
 >>> base.integer_validator("mystr", 0)
 Traceback (most recent call last):
-TypeError: mystr must be greater than 0
+ValueError: mystr must be greater than 0
 
 >>> base.integer_validator("mystr")
 Traceback (most recent call last):
