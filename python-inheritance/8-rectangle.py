@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""defines BaseGeometry class"""
+"""defines BaseGeometry and Rectangle classes"""
 
 
 class BaseGeometry:
@@ -12,6 +12,7 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+
 
 class Rectangle(BaseGeometry):
     """defines Rectangle which inherits from basegeo"""
