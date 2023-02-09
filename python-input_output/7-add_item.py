@@ -11,7 +11,9 @@ def add_item():
     """adds all arguments to a Python list, \
     and then save them to a file"""
     args = sys.argv
-    filename = load_from_json_file("add_item.json")
-    my_list = []
-    my_list.extend(args[1:])
-    save_to_json_file(my_list, filename)
+    try:
+        my_list = load_from_json_file("add_item.json")
+    except FileNotFoundError:
+        my_list = []
+    my_list.extend(argv[1:])
+    save_to_json_file(my_list, "add_item.json")
