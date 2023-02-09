@@ -12,7 +12,6 @@ def add_item():
     and then save them to a file"""
     args = sys.argv
     filename = load_from_json_file("add_item.json")
-    with open(filename, "a+", encoding="utf-8") as myFile:
-        my_list = []
-        my_list.extend(args[1:])
-        save_to_json_file(my_list, filename)
+    my_list = []
+    my_list.extend(args[1:])
+    save_to_json_file(my_list, filename)
