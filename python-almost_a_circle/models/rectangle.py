@@ -23,8 +23,16 @@ class Rectangle(Base):
 
     def display(self):
         """prints the rectangle with #"""
+        if self.y > 0:
+            for i in range(self.y):
+                print()
+        
         for i in range(self.__height):
-            print("#" * self.__width)
+            if self.x > 0:
+                print(" ", end="")
+                print("#" * self.__width)
+            else:
+                print("#" * self.__width)
 
     @property
     def width(self):
