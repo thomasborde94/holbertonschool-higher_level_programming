@@ -12,6 +12,10 @@ class Rectangle(Base):
         self.y = y
         super().__init__(id)
 
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,\
+                                                       self.__y, self.__width,\
+                                                       self.__height)
     def area(self):
         """return area of the Rectangle"""
         return self.__width * self.__height
