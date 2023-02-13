@@ -40,3 +40,13 @@ class Base:
             else:
                 toDictionary = [lists.to_dictionary() for lists in list_objs]
                 buff.write(Base.to_json_string(toDictionary))
+
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == 'Square':
+            dummy = cls(3)
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(3, 3)
+
+        dummy.update(**dictionary)
+        return dummy
