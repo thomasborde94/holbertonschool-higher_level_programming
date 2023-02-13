@@ -34,6 +34,23 @@ class Rectangle(Base):
             else:
                 print("#" * self.__width)
 
+    def update(self, *args):
+        """update the rectangle id, width, height, x and y"""
+        if len(args) != 0:
+            count = 0
+            for arg in args:
+                if count == 0:
+                    self.id = arg
+                elif count == 1:
+                    self.__width = arg
+                elif count == 2:
+                    self.__height = arg
+                elif count == 3:
+                    self.__x = arg
+                elif count == 4:
+                    self.__y = arg
+                count += 1
+
     @property
     def width(self):
         return self.__width
