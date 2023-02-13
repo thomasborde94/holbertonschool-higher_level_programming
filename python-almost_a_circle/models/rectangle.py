@@ -26,10 +26,10 @@ class Rectangle(Base):
         if self.y > 0:
             for i in range(self.y):
                 print()
-        
+
         for i in range(self.__height):
             if self.x > 0:
-                print(" ", end="")
+                print(" " * self.__x, end="")
                 print("#" * self.__width)
             else:
                 print("#" * self.__width)
