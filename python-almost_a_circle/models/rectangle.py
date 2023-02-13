@@ -34,9 +34,9 @@ class Rectangle(Base):
             else:
                 print("#" * self.__width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update the rectangle id, width, height, x and y"""
-        if len(args) != 0:
+        if len(args) != 0 and args is not None:
             count = 0
             for arg in args:
                 if count == 0:
@@ -50,6 +50,18 @@ class Rectangle(Base):
                 elif count == 4:
                     self.__y = arg
                 count += 1
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "width":
+                    self.__width = value
+                elif key == "height":
+                    self.__height = value
+                elif key == "x":
+                    self.__x = value
+                elif key == "y":
+                    self.__y = value
 
     @property
     def width(self):
