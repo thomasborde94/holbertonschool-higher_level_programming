@@ -26,5 +26,15 @@ class TestBase(unittest.TestCase):
         self.assertTrue(isinstance(dic, dict))
         self.assertTrue(isinstance(json_dic, str))
 
+    def test_from_json_string(self):
+        """test from json string"""
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertEqual(list_output, list_input)
+
 if __name__ == "__main__":
     unittest.main()
