@@ -37,7 +37,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_valueError(self):
         """tests when is int but no valid values"""
-        self.assertRaisesRegexr(
+        self.assertRaisesRegex(
             ValueError, "width must be > 0", Rectangle, -5, 9)
         self.assertRaisesRegex(
             ValueError, "height must be > 0", Rectangle, 5, -9)
