@@ -88,3 +88,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.height, 2)
         self.assertEqual(r.x, 3)
         self.assertEqual(r.y, 4)
+
+    def test_display(self):
+        r1 = Rectangle(3, 2)
+        expected_output = '###\n###\n'
+        with StringIO() as buffer, redirect_stdout(buffer):
+            r1.display()
+            result = buffer.getvalue()
+        self.assertEqual(result, expected_output)
