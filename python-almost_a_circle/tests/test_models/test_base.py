@@ -16,5 +16,10 @@ class TestBase(unittest.TestCase):
         baseTest = Base()
         self.assertEqual(baseTest.id, 1)
 
+    def test_autoId2(self):
+        """assigns an id automatically when id is not given"""
+        baseTest = Base()
+        self.assertEqual(baseTest.id, 2)
+
 if __name__ == "__main__":
     unittest.main()
