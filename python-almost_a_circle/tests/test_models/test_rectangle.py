@@ -72,8 +72,8 @@ class TestRectangle(unittest.TestCase):
             result = buffer.getvalue()
         self.assertEqual(result, expected_output)
 
-        r2 = Rectangle(2, 3)
-        expected_output = '##\n##\n##\n'
+        r2 = Rectangle(3, 2, 1, 1)
+        expected_output = '\n ###\n ###\n'
         with StringIO() as buffer, redirect_stdout(buffer):
             r2.display()
             result = buffer.getvalue()
