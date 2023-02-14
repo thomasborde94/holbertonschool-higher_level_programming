@@ -2,6 +2,9 @@
 "Unit tests for Rectangle class"
 import unittest
 from models.rectangle import Rectangle
+from io import StringIO
+from contextlib import redirect_stdout
+
 
 class TestRectangle(unittest.TestCase):
     """tests for class rectangle"""
@@ -49,3 +52,39 @@ class TestRectangle(unittest.TestCase):
             ValueError, "x must be >= 0", Rectangle, 1, 2, -3)
         self.assertRaisesRegex(
             ValueError, "y must be >= 0", Rectangle, 1, 2, 3, -4)
+
+    def test_area(self):
+        """test of area function"""
+        r = Rectangle(10, 10)
+        self.assertEqual(r.area(), 100)
+
+    def test_str(self):
+        """test of str func"""
+        r = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(str(r), "[Rectangle] (5) 3/4 - 1/2")
+
+    def test_display(self):
+        """test of display func"""
+        r1 = Rectangle(3, 2)
+        expected_output = '###\n###\n'
+        with StringIO() as buffer, redirect_stdout(buffer):
+            r1.display()
+            result = buffer.getvalue()
+        self.assertEqual(result, expected_output)
+
+        r2 = Rectangle(2, 3)
+        expected_output = '##\n##\n##\n'
+        with StringIO() as buffer, redirect_stdout(buffer):
+            r2.display()
+            result = buffer.getvalue()
+        self.assertEqual(result, expected_output)
+
+    def test_update(self):
+        """Tests if Rectangle's update() exists and updates the right args"""
+        r = Rectangle(10, 20, 30, 40, 50)
+        r.update(89, 1, 2, 3, 4)
+        self.assertEqual(r.id, 89)
+        self.assertEqual(r.width, 1)
+        self.assertEqual(r.height, 2)
+        self.assertEqual(r.x, 3)
+        self.assertEqual(r.y, 4)
