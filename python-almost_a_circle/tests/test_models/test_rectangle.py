@@ -79,6 +79,13 @@ class TestRectangle(unittest.TestCase):
             result = buffer.getvalue()
         self.assertEqual(result, expected_output)
 
+        r5 = Rectangle(3, 2, 1, 1, 89)
+        expected_output = '\n ###\n ###\n'
+        with StringIO() as buffer, redirect_stdout(buffer):
+            r5.display()
+            result = buffer.getvalue()
+        self.assertEquel(result, expected_output)
+
     def test_update(self):
         """Tests if Rectangle's update() exists and updates the right args"""
         r = Rectangle(10, 20, 30, 40, 50)
@@ -114,3 +121,11 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle.create(**{"id": 89, "width": 10, "height": 12, "x": 2, "y":3})
         r2 = Rectangle(10, 12, 2, 3, 89)
         self.assertEqual(str(r), str(r2))
+
+"""
+    def test_save_to_file(self):
+        r5 = Rectangle(5, 3, 2, 3, 50)
+        rsave = r5.save_to_file(r5)
+        routput = from_json_file(rsave)
+        self.assertEqual(routput, rsave)
+"""
