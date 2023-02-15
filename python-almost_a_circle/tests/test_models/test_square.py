@@ -83,5 +83,11 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s4.x, 30)
         self.assertEqual(s4.y, 35)
 
+    def test_create_square(self):
+        """test of create func for square"""
+        s5 = Square.create(**{"id": 55, "size": 12, "x": 3, "y": 5})
+        s6 = Square(12, 3, 5, 55)
+        self.assertEqual(str(s5), str(s6))
+
 if __name__ == "__main__":
     unittest.main()
