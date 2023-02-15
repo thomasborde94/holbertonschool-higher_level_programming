@@ -74,5 +74,14 @@ class TestSquare(unittest.TestCase):
         s3_dic = s3.to_dictionary()
         self.assertEqual(s3_dic, {'id': 12,'size': 10, 'x': 2, 'y': 1})
 
+    def test_update(self):
+        """test update func for square"""
+        s4 = Square(10, 3, 5, 30)
+        s4.update(20, 25, 30, 35)
+        self.assertEqual(s4.id, 20)
+        self.assertEqual(s4.size, 25)
+        self.assertEqual(s4.x, 30)
+        self.assertEqual(s4.y, 35)
+
 if __name__ == "__main__":
     unittest.main()
