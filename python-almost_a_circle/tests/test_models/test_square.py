@@ -14,9 +14,9 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.size, 10)
         self.assertEqual(s.x, 5)
         self.assertEqual(s.y, 3)
-        s2 = Square(10, 5)
-        self.assertEqual(s.size, 10)
-        self.assertEqual(s.x, 5)
+        s2 = Square(3, 8)
+        self.assertEqual(s2.size, 3)
+        self.assertEqual(s2.x, 8)
 
     def test_instance(self):
         """test input size correct standard """
