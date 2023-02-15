@@ -113,10 +113,14 @@ class TestRectangle(unittest.TestCase):
         r2 = Rectangle(10, 12, 2, 3, 89)
         self.assertEqual(str(r), str(r2))
 
-"""
     def test_save_to_file(self):
         r5 = Rectangle(5, 3, 2, 3, 50)
-        rsave = r5.save_to_file(r5)
-        routput = from_json_file(rsave)
-        self.assertEqual(routput, rsave)
-"""
+        r6 = Rectangle(2, 4)
+        Rectangle.save_to_file([r5, r6])
+        with open("Rectangle.json", "r") as f:
+            r8 = f.read()
+        r7 = '[{"id": 50, "width": 5, "height": 3, "x": 2, "y": 3}, \
+{"id": 11, "width": 2, "height": 4, "x": 0, "y": 0}]'
+        self.assertEqual(r7, r8)
+
+        
