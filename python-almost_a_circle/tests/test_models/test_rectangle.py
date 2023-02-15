@@ -84,7 +84,7 @@ class TestRectangle(unittest.TestCase):
         with StringIO() as buffer, redirect_stdout(buffer):
             r5.display()
             result = buffer.getvalue()
-        self.assertEquel(result, expected_output)
+        self.assertEqual(result, expected_output)
 
     def test_update(self):
         """Tests if Rectangle's update() exists and updates the right args"""
@@ -95,15 +95,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.height, 2)
         self.assertEqual(r.x, 3)
         self.assertEqual(r.y, 4)
-
-    def test_display(self):
-        """test display func for rectangle"""
-        r1 = Rectangle(3, 2)
-        expected_output = '###\n###\n'
-        with StringIO() as buffer, redirect_stdout(buffer):
-            r1.display()
-            result = buffer.getvalue()
-        self.assertEqual(result, expected_output)
 
     def test_dictionary(self):
         """test to dictionary func for rectangle"""
