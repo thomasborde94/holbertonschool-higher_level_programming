@@ -8,6 +8,13 @@ from models.rectangle import Rectangle
 class TestSquare(unittest.TestCase):
     """Testing Square"""
 
+    def test_initialization(self):
+        """test of square init"""
+        s = Square(10, 5, 3)
+        self.assertEqual(s.size, 10)
+        self.assertEqual(s.x, 5)
+        self.assertEqual(s.y, 3)
+
     def test_instance(self):
         """test input size correct standard """
         s = Square(5)
