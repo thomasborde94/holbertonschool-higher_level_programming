@@ -90,6 +90,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.y, 4)
 
     def test_display(self):
+        """test display func for rectangle"""
         r1 = Rectangle(3, 2)
         expected_output = '###\n###\n'
         with StringIO() as buffer, redirect_stdout(buffer):
@@ -98,11 +99,18 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(result, expected_output)
 
     def test_dictionary(self):
+        """test to dictionary func for rectangle"""
         s1 = Rectangle(10, 2, 1, 9)
         s1_dict = s1.to_dictionary()
-        self.assertEqual(s1_dict, {'x': 1, 'y': 9, 'id': 4,
+        self.assertEqual(s1_dict, {'x': 1, 'y': 9, 'id': 5,
                                    'height': 2, 'width': 10})
         s2 = Rectangle(1, 2)
         s2_dict = s2.to_dictionary()
-        self.assertEqual(s2_dict, {'x': 0, 'y': 0, 'id': 5,
+        self.assertEqual(s2_dict, {'x': 0, 'y': 0, 'id': 6,
                                    'height': 2, 'width': 1})
+
+    def test_create_rectangle(self):
+        """test of create function for rectangle"""
+        r = Rectangle.create(**{"id": 89, "width": 10, "height": 12, "x": 2, "y":3})
+        r2 = Rectangle(10, 12, 2, 3, 89)
+        self.assertEqual(str(r), str(r2))
