@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 "Unit tests for Rectangle class"
 import unittest
+import os
 from models.square import Square
 from models.rectangle import Rectangle
 
