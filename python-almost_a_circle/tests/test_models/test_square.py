@@ -89,5 +89,47 @@ class TestSquare(unittest.TestCase):
         s6 = Square(12, 3, 5, 55)
         self.assertEqual(str(s5), str(s6))
 
+    def test_save_to_file(self):
+        """
+        Test save file
+        """
+        s = Square(8, 0, 0, 18)
+        Square.save_to_file([s])
+        with open("Square.json", "r") as f:
+            data_read = f.read()
+        expect_output = '[{"id": 18, "size": 8, "x": 0, "y": 0}]'
+        self.assertEqual(data_read, expect_output)
+        os.remove("Square.json")
+
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            data_read = f.read()
+        expect_output = '[]'
+        self.assertEqual(data_read, expect_output)
+        os.remove("Square.json")
+
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            data_read = f.read()
+        expect_output = '[]'
+        self.assertEqual(data_read, expect_output)
+        os.remove("Square.json")
+
+
+    def test_load_to_file(self):
+        """
+        Test load file
+        """
+        s1 = Square(8)
+        Square.save_to_file([s1])
+        squares = Square.load_from_file()
+        self.assertIsInstance(squares[0], Square)
+        self.assertEqual(squares[0].width, 8)
+        os.remove("Square.json")
+
+        s = Square.load_from_file()
+        self.assertTrue(isinstance(s, list))
+        self.assertEqual(s, [])
+
 if __name__ == "__main__":
     unittest.main()
