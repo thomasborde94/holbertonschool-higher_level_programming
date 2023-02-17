@@ -4,6 +4,7 @@ import unittest
 from models.rectangle import Rectangle
 from io import StringIO
 from contextlib import redirect_stdout
+import os
 
 
 class TestRectangle(unittest.TestCase):
@@ -123,4 +124,44 @@ class TestRectangle(unittest.TestCase):
 {"id": 11, "width": 2, "height": 4, "x": 0, "y": 0}]'
         self.assertEqual(r7, r8)
 
-        
+    def test_save_to_file(self):
+        """
+        Test save file
+        """
+        r = Rectangle(2, 4, 0, 0, 18)
+        Rectangle.save_to_file([r])
+        with open("Rectangle.json", "r") as f:
+            data_read = f.read()
+        expect_output = '[{"id": 18, "width": 2, "height": 4, "x": 0, "y": 0}]'
+        self.assertEqual(data_read, expect_output)
+        os.remove("Rectangle.json")
+
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            data_read = f.read()
+        expect_output = '[]'
+        self.assertEqual(data_read, expect_output)
+        os.remove("Rectangle.json")
+
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            data_read = f.read()
+        expect_output = '[]'
+        self.assertEqual(data_read, expect_output)
+        os.remove("Rectangle.json")
+
+    def test_load_from_file(self):
+        """
+        Test load file
+        """
+        r1 = Rectangle(4, 6)
+        Rectangle.save_to_file([r1])
+        rectangles = Rectangle.load_from_file()
+        self.assertIsInstance(rectangles[0], Rectangle)
+        self.assertEqual(rectangles[0].width, 4)
+        self.assertEqual(rectangles[0].height, 6)
+        os.remove("Rectangle.json")
+
+        r = Rectangle.load_from_file()
+        self.assertTrue(isinstance(r, list))
+        self.assertEqual(r, [])
