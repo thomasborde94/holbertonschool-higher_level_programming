@@ -14,14 +14,13 @@ if __name__ == "__main__":
                                  db=database, host="localhost",
                                  port=3306)
     cursor = connection.cursor()
-    request = "SELECT cities.name, states.name FROM cities\
+    request = "SELECT cities.name FROM cities\
     JOIN states ON cities.state_id = states.id WHERE states.name = %s\
     ORDER BY cities.id ASC"
     infos = (statename,)
     cursor.execute(request, infos)
 
     cityList = cursor.fetchall()
-
     print(", ".join(city[0] for city in cityList))
 
     cursor.close()
