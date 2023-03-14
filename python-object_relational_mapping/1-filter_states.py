@@ -13,13 +13,14 @@ if __name__ == "__main__":
                                  port=3306)
 
     cursor = connection.cursor()
-    request = "SELECT * FROM states WHERE name LIKE '%N%' ORDER BY states.id"
+    request = "SELECT * FROM states ORDER BY states.id"
     cursor.execute(request)
 
     stateList = cursor.fetchall()
 
     for state in stateList:
-        print(state)
+        if state[1][0] =="N":
+            print(state)
 
     cursor.close()
     connection.close()
