@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     result = engine.execute(text("SELECT * FROM states;"))
     for row in result.fetchall():
-        print(row)
+        print("{}: {}".format(row[0], row[1]))
 
     # New session
     ##Session = sessionmaker(bind=engine)
