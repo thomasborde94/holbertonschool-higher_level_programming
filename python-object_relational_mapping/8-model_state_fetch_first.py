@@ -16,9 +16,6 @@ if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".
                            format(username, password, database))
 
-    result = engine.execute(text("SELECT * FROM states ORDER BY states.id;"))
-    i = 1
+    result = engine.execute(text("SELECT * FROM states ORDER BY states.id LIMIT 1;"))
     for row in result.fetchall():
-        while i < 2:
-            print("{}: {}".format(row[0], row[1]))
-            i += 1
+        print("{}: {}".format(row[0], row[1]))
