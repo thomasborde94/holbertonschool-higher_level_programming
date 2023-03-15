@@ -16,6 +16,15 @@ if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".
                            format(username, password, database))
 
-    result = engine.execute(text("SELECT * FROM states ORDER BY states.id LIMIT 1;"))
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    state = session.query(State).order_by(State.id).first()
+
+    print("{}: {}".format(state.id, state.name))
+    """
+    Good result but checker not happy
+    result = engine.execute(text("SELECT * FROM states
+    ORDER BY states.id LIMIT 1;"))
     for row in result.fetchall():
         print("{}: {}".format(row[0], row[1]))
+    """
