@@ -13,15 +13,9 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
 
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".\
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".
                            format(username, password, database))
 
     result = engine.execute(text("SELECT * FROM states;"))
     for row in result.fetchall():
         print("{}: {}".format(row[0], row[1]))
-
-    # New session
-    ##Session = sessionmaker(bind=engine)
-    ##session = Session()
-
-    
