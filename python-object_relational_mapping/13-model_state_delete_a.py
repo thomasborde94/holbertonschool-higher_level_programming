@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-prints the State object with the name passed as argument
+deletes all State objects with a name containing the letter a
 """
 from model_state import Base, State
 import sys
