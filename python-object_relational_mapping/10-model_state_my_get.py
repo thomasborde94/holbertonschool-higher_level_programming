@@ -17,13 +17,11 @@ if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".
                            format(username, password, database))
 
-    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).filter(State.name == statename).first()
+    state = session.query(State).filter(State.name == statename).first()
 
-    if states is None:
+    if state is None:
         print("Not found")
     else:
-        for state in states:
-            print("{}".format(state.id))
+        print("{}".format(state.id))
