@@ -19,17 +19,10 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).filter(State.name == statename)
+    states = session.query(State).filter(State.name == statename).first()
 
     if states is None:
         print("Not found")
     else:
         for state in states:
             print("{}".format(state.id))
-    """
-    Good result but checker not happy
-    result = engine.execute(text("SELECT * FROM states
-    ORDER BY states.id LIMIT 1;"))
-    for row in result.fetchall():
-        print("{}: {}".format(row[0], row[1]))
-    """
