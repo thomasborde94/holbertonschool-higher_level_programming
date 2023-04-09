@@ -1,0 +1,1 @@
+First exercices about javascript
