@@ -1,11 +1,11 @@
 #!/usr/bin/node
 const Square2 = require('./5-square');
 class Square extends Square2 {
-  charPrint(c) {
+  charPrint (c) {
     let i = 0;
     while (i < this.height) {
       if (c !== undefined) {
-	console.log(c.repeat(this.width));
+        console.log(c.repeat(this.width));
       } else {
         console.log('X'.repeat(this.width));
       }
